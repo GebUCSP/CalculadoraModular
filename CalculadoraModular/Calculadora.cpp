@@ -28,6 +28,9 @@ void Calculadora::options() {
 		info('*');
 		std::cout << mult() << " mod " << mod << " = " << mult();
 		break;
+	case 4:
+		std::cout << "Si el numero es igual a 0 significa que no posee un inverso multiplicativo" << std::endl;
+		std::cout << op1 << "^-1" << " mod " << mod << " = " << inverso(mod, op1) << std::endl;
 	default:
 		break;
 	}
@@ -64,3 +67,45 @@ int Calculadora::restar() {
 int Calculadora::mult() {
 	return ((op1 * op2) % mod);
 }
+
+int Calculadora::inverso(int n1, int n2, int u0, int u1) {
+	int q = n1 / n2;
+	int r = n1 % n2;
+	int u2 = (u0 - (q * u1));
+
+	if (r == 1) {
+		return (this->mod + u2) % this->mod;
+	}
+	if (r == 0) {
+		//no tiene residuo
+		return 0;
+	}
+	return inverso(n2, r, u1, u2);
+}
+
+/*
+int Calculadora::inverso(int n1, int n2, int u0 = 0, int u1 = 1)
+{
+	int q = n1 / n2;x|
+	int r = n1 % n2;
+	int u2 = (u0 - (q * u1));
+	while (r != 1 && r != 0)
+	{
+		n1 = n2;
+		n2 = r;
+		r = n1 % n2;
+		q = n1 / n2;
+		u0 = u1;
+		u1 = u2;
+		u2 = (u0 - (q * u1));
+	}
+
+	if (r == 1)
+	{
+		return (this->mod + u2) % this->mod;
+	}
+
+	return 0;
+}
+
+*/

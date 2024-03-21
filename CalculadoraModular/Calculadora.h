@@ -14,5 +14,6 @@ public:
 	int sumar();
 	int restar();
 	int mult();
+	int inverso(int,int,int u0 = 0,int u1 = 1);
 };
 
