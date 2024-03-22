@@ -4,7 +4,8 @@ class Calculadora
 private:
 	int mod, op1, op2, op;
 public:
-	Calculadora(int,int,int,int);
+	Calculadora();
+	void menu();
 	void ajuste();
 	int ajuste(int);
 

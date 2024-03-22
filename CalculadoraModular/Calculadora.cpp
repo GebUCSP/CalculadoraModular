@@ -1,11 +1,28 @@
 #include "Calculadora.h"
 #include <iostream>
 
-Calculadora::Calculadora(int mod, int op1, int op2, int op) {
+Calculadora::Calculadora() {
+	menu();
+}
+
+void Calculadora::menu() {
+	int mod{ 0 }, op1{ 0 }, op2{ 0 }, op{ 0 };
+	std::cout << "Operacion que desea realizar:\nSumar(1)\nRestar(2)\nMultiplicar(3)\nInversa(4)\nRpta: ";
+	std::cin >> op;
+	std::cout << "Modulo: ";
+	std::cin >> mod;
+	std::cout << "Primer operando: ";
+	std::cin >> op1;
+	if (op != 4) {
+		std::cout << "Segundo operando: ";
+		std::cin >> op2;
+	}
+
 	this->mod = mod;
 	this->op1 = op1;
 	this->op2 = op2;
 	this->op = op;
+
 	if (this->op1 < 0 || this->op2 < 0) {
 		ajuste();
 	}
